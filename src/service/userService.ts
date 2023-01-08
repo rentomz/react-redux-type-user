@@ -12,8 +12,12 @@ var config = {
 
 export default {
   async getAllUser() {
-    var response = await Api().get('/users', config);
-    console.log(response.headers);
+    var response = await Api().get('/users?per_page=100', config);
+    return response.data;
+  },
+
+  async getAllUserTodo(id: number) {
+    var response = await Api().get('/users/' + id + '/posts', config);
     return response.data;
   },
 
@@ -32,6 +36,24 @@ export default {
     var response = await axios({
       method: 'post',
       url: '/users',
+      headers: {
+        Authorization:
+          'Bearer ' +
+          '49cfbc9f3d1b7487340e53b685ebdb6f490089ad8efce4b79e9d79509f2c2301',
+      },
+      data: data,
+    });
+    return response.data;
+  },
+
+  async addTodo(users: User, title : string, body : string) {
+    var data = {
+      title: title,
+      body: body,
+    };
+    var response = await axios({
+      method: 'post',
+      url: '/users/' + users.id + '/posts',
       headers: {
         Authorization:
           'Bearer ' +

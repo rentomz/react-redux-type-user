@@ -14,7 +14,15 @@ export interface UserAdd {
   status: string,
 }
 
+export interface Todo {
+  id: number,
+  user_id: string,
+  title: string,
+  body: string,
+}
+
 export interface UserState {
   users: User[]
   detail: User
+  todo: Todo[]
 }

@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { User, UserState } from '../../type'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Todo, User, UserState } from '../../type';
 
 
 
@@ -12,7 +12,8 @@ const initialState: UserState = {
     email: "",
     gender: "",
     status: "",
-  }
+  },
+  todo:[]
 }
 
 
@@ -27,17 +28,9 @@ export const userSlice = createSlice({
     setUserDetail: (state, action : PayloadAction<User>) => {
       state.detail=action.payload;
     },
-
-    // increment: state => {
-    //   state.value += 1
-    // },
-    // decrement: state => {
-    //   state.value -= 1
-    // },
-    // // Use the PayloadAction type to declare the contents of `action.payload`
-    // incrementByAmount: (state, action: PayloadAction<number>) => {
-    //   state.value += action.payload
-    // }
+    setTodo: (state, action : PayloadAction<Todo[]>) => {
+      state.todo=action.payload;
+    },
   }
 })
 
