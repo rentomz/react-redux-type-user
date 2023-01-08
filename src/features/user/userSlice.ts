@@ -1,12 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from '../../app/store'
-import {User, UserState} from '../../type'
+import { User, UserState } from '../../type'
 
 
 
 // Define the initial state using that type
 const initialState: UserState = {
-  users:[]
+  users:[],
+  detail: {
+    id: 0,
+    name: "",
+    email: "",
+    gender: "",
+    status: "",
+  }
 }
 
 
@@ -18,9 +24,9 @@ export const userSlice = createSlice({
     setUser: (state, action : PayloadAction<User[]>) => {
       state.users=action.payload;
     },
-    deleteUser: (state, action : PayloadAction<User[]>) => {
-      state.users=action.payload;
-    }
+    setUserDetail: (state, action : PayloadAction<User>) => {
+      state.detail=action.payload;
+    },
 
     // increment: state => {
     //   state.value += 1

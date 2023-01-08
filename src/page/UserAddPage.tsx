@@ -1,10 +1,5 @@
 import {
-  Button,
-  TextField,
-  RadioGroup,
-  FormControlLabel,
-  Radio,
-  FormLabel,
+  Button, FormControlLabel, FormLabel, Radio, RadioGroup, TextField
 } from '@mui/material';
 import Container from '@mui/material/Container';
 import { useState } from 'react';
@@ -27,6 +22,7 @@ export default function UserAddPage() {
     dispatch(addUserAction(data));
     navigate('/');
   }
+  
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

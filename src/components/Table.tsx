@@ -1,4 +1,4 @@
-import * as React from 'react';
+import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -7,7 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import Button from '@mui/material/Button';
+import * as React from 'react';
 import { User, UserState } from '../type';
 
 interface Column {
@@ -55,9 +55,11 @@ interface Data {
 type Props = {
   users: UserState["users"],
   handleDelete: (event: User) => void;
+  handleView: (event: User) => void;
+  handleUpdate: (event: User) => void;
 };
 
-export default function TableCustome({ users, handleDelete }: Props) {
+export default function TableCustome({ users, handleDelete,handleView, handleUpdate }: Props) {
   const rows = users;
 
   const [page, setPage] = React.useState(0);
@@ -108,12 +110,12 @@ export default function TableCustome({ users, handleDelete }: Props) {
                     <TableCell align="left">{row.gender}</TableCell>
                     <TableCell align="left">{row.status}</TableCell>
                     <TableCell align="left">
-                      <Button aria-label="view" onClick={() => handleEdit(row)}>
+                      <Button aria-label="view" onClick={() => handleView(row)}>
                         View
                       </Button>
                       <Button
                         aria-label="update"
-                        onClick={() => handleEdit(row)}
+                        onClick={() => handleUpdate(row)}
                       >
                         Update
                       </Button>

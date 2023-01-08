@@ -1,8 +1,10 @@
 import Header from './components/Header';
 
 import { Route, Routes } from 'react-router-dom';
-import Userpage from './page/Userpage';
 import UserAddPage from './page/UserAddPage';
+import UserDetailPage from './page/UserDetailPage';
+import Userpage from './page/Userpage';
+import UserUpdatePage from './page/UserUpdatePage';
 
 function App() {
   return (
@@ -10,8 +12,10 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path="/users/add" element={<UserAddPage />} />
         <Route path="/" element={<Userpage />} />
+        <Route path="/users/add" element={<UserAddPage />} />
+        <Route path="/users/detail/:id" element={<UserDetailPage />} />
+        <Route path="/users/update/:id" element={<UserUpdatePage />} />
       </Routes>
     </div>
   );

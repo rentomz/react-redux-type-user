@@ -1,14 +1,12 @@
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
 
-import CustomPaginationActionsTable from '../components/Table';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { fetchUser, deleteUserAction } from '../features/user/userAction';
-import { User, UserState } from '../type';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import CustomPaginationActionsTable from '../components/Table';
+import { deleteUserAction, fetchUser } from '../features/user/userAction';
+import { User } from '../type';
 
 export default function Userpage() {
   //Route
@@ -29,6 +27,16 @@ export default function Userpage() {
     }
   }
 
+  function handleDetailAction(event: User) {
+    // console.log('The Values that you wish to edit ', event);
+    navigate(`/users/detail/${event.id}`);
+  }
+
+  function handleUpdateAction(event: User) {
+    // console.log('The Values that you wish to edit ', event);
+    navigate(`/users/update/${event.id}`);
+  }
+
   function handleAddUser() {
     navigate('/users/add');
   }
@@ -46,6 +54,8 @@ export default function Userpage() {
       <CustomPaginationActionsTable
         users={allUser}
         handleDelete={handleDeleteAction}
+        handleView={handleDetailAction}
+        handleUpdate={handleUpdateAction}
       />
     </Container>
   );
