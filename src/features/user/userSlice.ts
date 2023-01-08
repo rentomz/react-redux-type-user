@@ -17,7 +17,11 @@ export const userSlice = createSlice({
   reducers: {
     setUser: (state, action : PayloadAction<User[]>) => {
       state.users=action.payload;
+    },
+    deleteUser: (state, action : PayloadAction<User[]>) => {
+      state.users=action.payload;
     }
+
     // increment: state => {
     //   state.value += 1
     // },

@@ -51,16 +51,13 @@ interface Data {
   status: string;
 }
 
-function createData(
-  name: string,
-  email: string,
-  gender: string,
-  status: string
-): Data {
-  return { name, email, gender, status };
-}
 
-export default function TableCustome({ users }: UserState) {
+type Props = {
+  users: UserState["users"],
+  handleDelete: (event: User) => void;
+};
+
+export default function TableCustome({ users, handleDelete }: Props) {
   const rows = users;
 
   const [page, setPage] = React.useState(0);
@@ -82,7 +79,7 @@ export default function TableCustome({ users }: UserState) {
   };
 
   return (
-    <Paper sx={{ width: '100%', overflow: 'hidden' ,marginBottom: "50px"}}>
+    <Paper sx={{ width: '100%', overflow: 'hidden', marginBottom: '50px' }}>
       <TableContainer component={Paper}>
         <Table aria-label="customized table">
           <TableHead>
@@ -122,7 +119,7 @@ export default function TableCustome({ users }: UserState) {
                       </Button>
                       <Button
                         aria-label="delete"
-                        onClick={() => handleEdit(row)}
+                        onClick={() => handleDelete(row)}
                       >
                         Delete
                       </Button>

@@ -7,6 +7,13 @@ export interface User {
   status: String,
 }
 
+export interface UserAdd {
+  name: String,
+  email: String,
+  gender: String,
+  status: String,
+}
+
 export interface UserState {
   users: User[]
 }
