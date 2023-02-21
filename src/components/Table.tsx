@@ -44,14 +44,6 @@ const columns: readonly Column[] = [
   },
 ];
 
-interface Data {
-  name: string;
-  email: string;
-  gender: string;
-  status: string;
-}
-
-
 type Props = {
   users: UserState["users"],
   handleDelete: (event: User) => void;
@@ -74,10 +66,6 @@ export default function TableCustome({ users, handleDelete,handleView, handleUpd
   ) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
-  };
-
-  const handleEdit = (values: User) => {
-    console.log('The Values that you wish to edit ', values);
   };
 
   return (
