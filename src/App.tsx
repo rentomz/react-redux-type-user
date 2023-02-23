@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <h1>Title 1</h1>
+      <h1>Title 2</h1>
       <h1>Main ada perubahan</h1>
       <Routes>
         <Route path="/" element={<Userpage />} />
