@@ -42,7 +42,7 @@ export default function Userpage() {
   }
   return (
     <Container maxWidth={'xl'}>
-      <h1>Pengguna</h1>
+      <h1>Pengguna User</h1>
       <Button
         variant="outlined"
         style={{ marginBlock: '32px', float: 'right' }}
