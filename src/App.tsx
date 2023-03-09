@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <h1>Title 2</h1>
       <Routes>
         <Route path="/" element={<Userpage />} />
         <Route path="/users/add" element={<UserAddPage />} />
